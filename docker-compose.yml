@@ -1,26 +1,43 @@
 version '3':
 
 services:
-  frontend: 
-    build: './frontend'
+  web: 
+    build: ./web
+    ports: 
+      - "8080:8080"
+    depends_on:
+      - comments
 
   crawler:
-    build: './crawler'
+    build: ./crawler
+    ports: 
+      - "3000:3000"
+    depends_on:
+      - mongo
+
+  comments:
+    build: ./comments
+    ports:
+      - "3001:3000"
+    depends_on:
+      - mongo
 
   mongo:
     image: mongo
-    restart: always
+    ports: 
+      - "27017:27017"
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: root
     volumes:
-      - 'mongo/data':'/data/db'
+      - './mongo/data':'/data/db'
 
   mongo-express:
     image: mongo-express
-    restart: always
     ports:
-      - 8081:8081
+      - "8081:8081"
+    depends_on:
+      - mongo
     environment:
       ME_CONFIG_MONGODB_ADMINUSERNAME: root
       ME_CONFIG_MONGODB_ADMINPASSWORD: root
