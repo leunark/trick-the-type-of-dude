@@ -1,6 +1,20 @@
 import express from 'express';
+import { router } from './routes';
+
+// Initialize app
 const app = express();
 
+// Setup server port
+const port = process.env.PORT || 3000;
+
+// Send message for default URL
 app.get('/', (req, res) => res.send('Helllo World!'));
 
-app.listen(3000, () => console.log('Example app listening on port 3000!'));
+// Import api routes
+app.use('/comments', router);
+
+// Launch app by listening to the specified port
+app.listen(port, () => {
+    console.log('Example app listening on port '+port+'!'); 
+});
+
