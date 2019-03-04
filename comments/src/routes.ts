@@ -8,24 +8,12 @@ const router = express.Router();
 
 // Return a list of comments
 router.get('/', (req, res) => {
-    let comments = Comments.find((err: any, books: any) => {
-        if (err) {
-            res.send("Error: "+err);
-        } else {
-            res.send(comments);
-        }
-    });
+    res.send("Return a list of comments");
 });
 
 // Return a specific comment
-router.get('/{id}', (req, res) => {
-    let comment = Comments.findById(req.params.id, (err: any, books: any) => {
-        if (err) {
-            res.send("Error: "+err);
-        } else {
-            res.send(comment);
-        }
-    });
+router.get('/:id', (req, res) => {
+    res.send("Return a specific comment with id " + req.params.id);
 });
 
 // Create a new comment

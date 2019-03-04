@@ -1,12 +1,12 @@
 version: '3'
 
 services:
-  web: 
-    build: ./web
-    ports: 
-      - "8080:8080"
-    depends_on:
-      - comments
+  #web: 
+  #  build: ./web
+  #  ports: 
+  #    - "8080:8080"
+  #  depends_on:
+  #    - comments
 
   comments:
     build: ./comments
@@ -15,12 +15,12 @@ services:
     depends_on:
       - mongo
 
-  crawler:
-    build: ./crawler
-    ports: 
-      - "3001:3000"
-    depends_on:
-      - mongo
+  #crawler:
+  #  build: ./crawler
+  #  ports: 
+  #    - "3001:3000"
+  #  depends_on:
+  #    - mongo
 
   mongo:
     image: mongo
@@ -30,7 +30,7 @@ services:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: root
     volumes:
-      - './mongo/data':'/data/db'
+      - "./mongo/data:/data/db"
 
   mongo-express:
     image: mongo-express

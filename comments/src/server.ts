@@ -8,7 +8,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 // Send message for default URL
-app.get('/', (req, res) => res.send('Helllo World!'));
+app.get('/', (req, res) => res.send('Trick Comments API is online!'));
 
 // Import api routes
 app.use('/comments', router);

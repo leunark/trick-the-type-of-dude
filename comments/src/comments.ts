@@ -1,9 +1,16 @@
 import mongoose from 'mongoose';
 
-const uri = 'mongodb://mongo:27017/trick';
+const uri = 'mongodb://mongo:27017/';
+
+// Define connection configuration
+const options = {
+    user: 'root',
+    pass: 'root',
+    dbName: 'db'
+};
 
 // Establish connection to MongoDB
-mongoose.connect(uri, (err) => {
+mongoose.connect(uri, options, (err) => {
     if(err) {
         console.log(err.message);
     } else {
