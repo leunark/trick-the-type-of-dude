@@ -1,4 +1,4 @@
-version '3':
+version: '3'
 
 services:
   web: 
@@ -8,16 +8,16 @@ services:
     depends_on:
       - comments
 
-  crawler:
-    build: ./crawler
-    ports: 
+  comments:
+    build: ./comments
+    ports:
       - "3000:3000"
     depends_on:
       - mongo
 
-  comments:
-    build: ./comments
-    ports:
+  crawler:
+    build: ./crawler
+    ports: 
       - "3001:3000"
     depends_on:
       - mongo

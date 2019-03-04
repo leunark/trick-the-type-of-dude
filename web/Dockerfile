@@ -1,19 +1,11 @@
-# Use nodejs with yarn as base image
-FROM kkarczmarczyk/node-yarn:latest
+FROM node:11
 
-# Create app directory
-WORKDIR /usr/src/app
+WORKDIR /app
 
-# Install app dependencies
-# A wildcard is used to ensure both package.json AND package-lock.json are copied
-COPY package*.json ./
-RUN yarn install
+RUN npm install -g yarn
 
-# Bundle app source
 COPY . .
 
-# Give access on port 8080
-EXPOSE 8080
+RUN yarn install
 
-# Serve application
-CMD [ "yarn", "serve" ]
+CMD yarn serve

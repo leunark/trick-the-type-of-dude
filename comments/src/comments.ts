@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const uri = 'mongodb://127.0.0.1:27017/local';
+const uri = 'mongodb://mongo:27017/trick';
 
 // Establish connection to MongoDB
 mongoose.connect(uri, (err) => {
