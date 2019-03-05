@@ -45,8 +45,7 @@ const commentsSchema = new mongoose.Schema({
 });
 
 // Convert commentSchema to a Model
-const Comments = mongoose.model('Comments', commentsSchema);
+const Comments = mongoose.model('Comments', commentsSchema, 'comments');
 
 export default Comments;
-
 
