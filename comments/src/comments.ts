@@ -19,7 +19,7 @@ mongoose.connect(uri, options, (err) => {
 });
 
 // Define a Schema for a comment regarding to Youtube API
-const commentsSchema = new mongoose.Schema({
+const commentSchema = new mongoose.Schema({
     kind: String,
     etag: String,
     id: String,
@@ -45,7 +45,7 @@ const commentsSchema = new mongoose.Schema({
 });
 
 // Convert commentSchema to a Model
-const Comments = mongoose.model('Comments', commentsSchema, 'comments');
+const Comment = mongoose.model('Comment', commentSchema, 'comments');
 
-export default Comments;
+export default Comment;
 
