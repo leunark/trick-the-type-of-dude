@@ -6,7 +6,8 @@ const uri = 'mongodb://mongo:27017/';
 const options = {
     user: 'root',
     pass: 'root',
-    dbName: 'db'
+    dbName: 'db',
+    useNewUrlParser: true
 };
 
 // Establish connection to MongoDB
